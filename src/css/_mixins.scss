@@ -1,0 +1,4 @@
+@mixin test-mix ($size: 20) {
+  font-size: #{$size / 2}px;
+  font-weight: bold;
+}

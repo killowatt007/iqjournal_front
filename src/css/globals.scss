@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// @import 'mixins';
+
+// @function getSize($size: 20) {
+//   @return #{$size * 2}px
+// }
+
+// $font-stack:    Helvetica, sans-serif;
+// $primary-color: red;
+
+// .content {
+//   .text {
+//     @include test-mix(40);
+//     color: $primary-color;
+//   }
+// }
+
+// ul {
+//   li {
+//     font-size: getSize(15);
+//     &:not(:first-child) {
+//       color: green;
+//     }
+//   }
+// }
+
+
+body {
+  background: #f0efea;
+}
+
+.container {
+  margin: 0 auto;
+  background: #fff;
+}
+
+.header {
+  .top-bar {
+    background: #f8f8f8;
+    padding: 0 70px;
+    
+    .social {
+      @apply flex;
+
+      .item {
+        @apply  text-gray-400 text-xl text-center
+                w-8
+                border-r border-gray-200
+                cursor-pointer;
+        padding: 1px 0;
+
+        &:hover {
+          @apply text-white;
+
+          &.vk {
+            background: #597BA5;
+          }
+          &.facebook {
+            background: #37589b;
+          }
+          &.youtube {
+            background: #a72b1d;
+          }
+        }
+
+        &:last-child {
+          @apply border-none;
+        }
+
+        svg {
+          @apply inline-block
+                 h-4;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    @apply flex;
+    padding: 0 70px;
+    border: 1px solid #e1e1e1;
+    border-left: none;
+    border-right: none;
+    height: 90px;
+
+    .brand {
+      img {
+        @apply h-full;
+      }
+    }
+
+    .nav {
+      margin-bottom: -1px;
+
+      > ul {
+        @apply flex
+               h-full
+               ml-8;
+
+        > li {
+          @apply h-full
+                 relative;
+
+          > a {
+            @apply px-3
+                   border-r border-b border-gray-200
+                   text-center
+                   cursor-pointer
+                   flex items-center justify-center
+                   h-full min-w-24;
+          }
+
+          a {
+            @apply px-3
+                   text-gray-400 text-sm font-medium
+                   transition-all duration-300;
+
+            &:hover {
+              @apply text-gray-950;
+            }
+          }
+
+          &:first-child {
+            a {
+              @apply border-l;
+            }
+          }
+
+          &.active {
+            a {
+              @apply border-b-2;
+
+              border-bottom-color: #6786a1;
+            }
+          }
+
+          .sub-menu {
+            @apply absolute
+                   border-x border-b border-gray-200 border-t-2
+                   transition-all duration-300
+                   bg-white
+                   opacity-0
+                   z-10;
+
+            border-top-color: #6786a1;
+            top: calc(100% - 2px);
+            visibility: hidden;
+
+            ul {
+              @apply w-max;
+
+              li {
+                @apply transition-all duration-300;
+
+                &:hover {
+                  background: #f8f8f8;
+                }
+
+                a {
+                  @apply px-4 py-2 block text-sm;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            .sub-menu {
+              @apply opacity-100;
+
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  .content {
+  }
+}
